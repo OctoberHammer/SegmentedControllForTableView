@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Rzp-G4-Hds">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Мясо-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SegmentedControlInsideTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mju-9j-WXe">
+                                <rect key="frame" x="0.0" y="72" width="320" height="29"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Ингридиенты"/>
+                                    <segment title="Приготовление"/>
+                                    <segment title="Отзывы"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="selectSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="WVh-71-HtB"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-4H-G1h">
+                                <rect key="frame" x="0.0" y="108" width="320" height="372"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" rowHeight="43" id="iFw-C5-Y1C">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iFw-C5-Y1C" id="On2-jY-YDO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LRF-pG-fA7"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Tcx-pl-flN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ksj-4H-G1h" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="307-D1-SYt"/>
+                            <constraint firstItem="Ksj-4H-G1h" firstAttribute="top" secondItem="mju-9j-WXe" secondAttribute="bottom" constant="8" symbolic="YES" id="BOz-iR-Xqq"/>
+                            <constraint firstItem="Ksj-4H-G1h" firstAttribute="leading" secondItem="mju-9j-WXe" secondAttribute="leading" id="BiJ-ZT-u0l"/>
+                            <constraint firstItem="Ksj-4H-G1h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FZS-BL-4HR"/>
+                            <constraint firstAttribute="trailing" secondItem="Ksj-4H-G1h" secondAttribute="trailing" id="JCY-sw-PTm"/>
+                            <constraint firstItem="Ksj-4H-G1h" firstAttribute="trailing" secondItem="mju-9j-WXe" secondAttribute="trailing" id="ohQ-AD-ZxU"/>
+                            <constraint firstItem="mju-9j-WXe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="uTm-S6-JQJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Мясо" id="cVW-A4-o83">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ETr-5I-kt4">
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" id="k2o-wy-6pN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="mySegmentedControll" destination="mju-9j-WXe" id="cV3-SQ-Vqa"/>
+                        <outlet property="myTableView" destination="Ksj-4H-G1h" id="FUr-7D-OKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="418"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pfp-18-DaJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rzp-G4-Hds" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lvJ-1K-ij5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jSF-ak-aus"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NEM-Y4-rss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="675" y="418"/>
+        </scene>
+    </scenes>
+</document>
